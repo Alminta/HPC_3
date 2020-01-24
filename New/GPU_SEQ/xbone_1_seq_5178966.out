@@ -1,0 +1,156 @@
+Fri Jan 24 13:16:02 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.36       Driver Version: 440.36       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  On   | 00000000:58:00.0 Off |                    0 |
+| N/A   30C    P0    25W / 250W |      0MiB / 32510MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Loaded module: cuda/10.2
+Loaded dependency [gcc/8.3.0]: binutils/2.29
+Loaded module: gcc/8.3.0
+N=8 iter=10
+real	0m0.417s
+user	0m0.021s
+sys	0m0.212s
+N=8 iter=100
+real	0m0.221s
+user	0m0.024s
+sys	0m0.176s
+N=8 iter=1000
+real	0m0.263s
+user	0m0.050s
+sys	0m0.201s
+N=16 iter=10
+real	0m0.225s
+user	0m0.026s
+sys	0m0.184s
+N=16 iter=100
+real	0m0.269s
+user	0m0.061s
+sys	0m0.193s
+N=16 iter=1000
+real	0m0.651s
+user	0m0.286s
+sys	0m0.346s
+N=32 iter=10
+real	0m0.252s
+user	0m0.046s
+sys	0m0.193s
+N=32 iter=100
+real	0m0.604s
+user	0m0.284s
+sys	0m0.313s
+N=32 iter=1000
+real	0m4.143s
+user	0m2.501s
+sys	0m1.626s
+N=64 iter=10
+real	0m0.569s
+user	0m0.229s
+sys	0m0.318s
+N=64 iter=100
+real	0m3.675s
+user	0m2.192s
+sys	0m1.468s
+N=64 iter=1000
+real	0m34.820s
+user	0m21.799s
+sys	0m12.919s
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-14>
+Subject: Job 5178966: <xbone_1_seq> in cluster <dcc> Done
+
+Job <xbone_1_seq> was submitted from host <n-62-20-7> by user <s164211> in cluster <dcc> at Fri Jan 24 13:16:00 2020
+Job was executed on host(s) <n-62-20-14>, in queue <hpcintrogpu>, as user <s164211> in cluster <dcc> at Fri Jan 24 13:16:01 2020
+</zhome/e3/7/118026> was used as the home directory.
+</zhome/e3/7/118026/Desktop/gits/3/New/GPU_SEQ> was used as the working directory.
+Started at Fri Jan 24 13:16:01 2020
+Terminated at Fri Jan 24 13:16:48 2020
+Results reported at Fri Jan 24 13:16:48 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J xbone_1_seq
+#BSUB -o xbone_1_seq_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 1
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -R "rusage[mem=8GB]"
+#BSUB -W 10
+#BSUB -R "span[hosts=1]"
+
+# set -x
+
+nvidia-smi
+
+# module load studio
+# module load clang/9.0.0
+# module swap clang/9.0.0
+module load cuda/10.2
+module load gcc/8.3.0
+# /appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+
+# executable
+EXECUTABLE=poisson_seq
+
+# args
+N="8 16 32 64"
+ITER="100"
+TOL="0"
+START_T="0"
+OUT="0"
+
+# environment variables
+
+NUM_RUNS=10
+ITERS="10 100 1000"
+# start the collect command with the above settings
+# ./$EXECUTABLE $N $ITER $TOL $START_T $OUT
+
+# time for i in {1..1000}; do ./$EXECUTABLE 25 $ITER $TOL $START_T $OUT; done
+# time for i in {1..100}; do ./$EXECUTABLE 50 $ITER $TOL $START_T $OUT; done
+# time for i in {1..10}; do ./$EXECUTABLE 100 $ITER $TOL $START_T $OUT; done
+# time ./$EXECUTABLE 200 $ITER $TOL $START_T $OUT
+
+for n in $N
+do
+    for i in $ITERS
+    do
+        time ./$EXECUTABLE $n $i $TOL $START_T $OUT
+    done
+done
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   46.06 sec.
+    Max Memory :                                 13 MB
+    Average Memory :                             12.50 MB
+    Total Requested Memory :                     8192.00 MB
+    Delta Memory :                               8179.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   53 sec.
+    Turnaround time :                            48 sec.
+
+The output (if any) is above this job summary.
+

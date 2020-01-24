@@ -1,0 +1,113 @@
+Fri Jan 24 13:08:39 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.36       Driver Version: 440.36       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  On   | 00000000:37:00.0 Off |                    0 |
+| N/A   56C    P0    29W / 250W |      0MiB / 16160MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Loaded module: cuda/10.2
+Loaded dependency [gcc/8.3.0]: binutils/2.29
+Loaded module: gcc/8.3.0
+array d_u1: allocation failed: File exists
+
+real	0m0.274s
+user	0m0.025s
+sys	0m0.192s
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-2>
+Subject: Job 5178925: <xbone_1_seq> in cluster <dcc> Exited
+
+Job <xbone_1_seq> was submitted from host <n-62-20-7> by user <s164211> in cluster <dcc> at Fri Jan 24 13:08:38 2020
+Job was executed on host(s) <n-62-20-2>, in queue <hpcintrogpu>, as user <s164211> in cluster <dcc> at Fri Jan 24 13:08:38 2020
+</zhome/e3/7/118026> was used as the home directory.
+</zhome/e3/7/118026/Desktop/gits/3/New/GPU_SEQ> was used as the working directory.
+Started at Fri Jan 24 13:08:38 2020
+Terminated at Fri Jan 24 13:08:40 2020
+Results reported at Fri Jan 24 13:08:40 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J xbone_1_seq
+#BSUB -o xbone_1_seq_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 1
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -R "rusage[mem=8GB]"
+#BSUB -W 10
+#BSUB -R "span[hosts=1]"
+
+# set -x
+
+nvidia-smi
+
+# module load studio
+# module load clang/9.0.0
+# module swap clang/9.0.0
+module load cuda/10.2
+module load gcc/8.3.0
+# /appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+
+# executable
+EXECUTABLE=poisson_seq
+
+# args
+N="4 8 16 32"
+ITER="100"
+TOL="0"
+START_T="0"
+OUT="0"
+
+# environment variables
+
+NUM_RUNS=10
+RUNS="1 10 100 1000"
+# start the collect command with the above settings
+# ./$EXECUTABLE $N $ITER $TOL $START_T $OUT
+
+# time for i in {1..1000}; do ./$EXECUTABLE 25 $ITER $TOL $START_T $OUT; done
+# time for i in {1..100}; do ./$EXECUTABLE 50 $ITER $TOL $START_T $OUT; done
+# time for i in {1..10}; do ./$EXECUTABLE 100 $ITER $TOL $START_T $OUT; done
+# time ./$EXECUTABLE 200 $ITER $TOL $START_T $OUT
+
+for n in N
+do
+    time ./$EXECUTABLE $n $ITER $TOL $START_T $OUT
+done
+
+
+
+
+(... more ...)
+------------------------------------------------------------
+
+Exited with exit code 255.
+
+Resource usage summary:
+
+    CPU time :                                   0.55 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     8192.00 MB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   26 sec.
+    Turnaround time :                            2 sec.
+
+The output (if any) is above this job summary.
+

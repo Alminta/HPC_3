@@ -1,0 +1,138 @@
+Fri Jan 24 20:00:57 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.36       Driver Version: 440.36       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  On   | 00000000:37:00.0 Off |                    0 |
+| N/A   49C    P0    30W / 250W |      0MiB / 16160MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Loaded module: cuda/10.2
+Loaded dependency [gcc/8.3.0]: binutils/2.29
+Loaded module: gcc/8.3.0
+max_tol: 0.010000 
+max_iter = 10000
+real	0m7.504s
+user	0m4.611s
+sys	0m2.848s
+==6698== NVPROF is profiling process 6698, command: ./poisson_tolerance 128 10000 0.1 0 0
+==6698== Profiling application: ./poisson_tolerance 128 10000 0.1 0 0
+max_tol: 0.010000 
+max_iter = 10000==6698== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   86.32%  6.01032s     10000  601.03us  600.86us  601.60us  reduction_presum(double*, int, double*)
+                   13.27%  924.12ms     10000  92.411us  91.360us  99.936us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    0.21%  14.792ms     10003  1.4780us  1.0230us  1.3643ms  [CUDA memcpy HtoD]
+                    0.19%  13.344ms     10001  1.3340us  1.1830us  1.2736ms  [CUDA memcpy DtoH]
+max_tol: 0.010000 
+max_iter = 10000
+real	0m57.263s
+user	0m35.817s
+sys	0m21.273s
+==6855== NVPROF is profiling process 6855, command: ./poisson_tolerance 256 10000 0.1 0 0
+==6855== Profiling application: ./poisson_tolerance 256 10000 0.1 0 0
+max_tol: 0.010000 
+max_iter = 10000==6855== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   84.92%  47.9815s     10000  4.7981ms  4.7953ms  4.8506ms  reduction_presum(double*, int, double*)
+                   14.97%  8.45775s     10000  845.77us  826.17us  852.64us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    0.08%  43.369ms     10003  4.3350us  1.0230us  10.893ms  [CUDA memcpy HtoD]
+                    0.04%  22.513ms     10001  2.2510us  1.1830us  10.179ms  [CUDA memcpy DtoH]
+User defined signal 2
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-3>
+Subject: Job 5187086: <xbone_1_tol> in cluster <dcc> Exited
+
+Job <xbone_1_tol> was submitted from host <n-62-20-7> by user <s164211> in cluster <dcc> at Fri Jan 24 20:00:57 2020
+Job was executed on host(s) <n-62-20-3>, in queue <hpcintrogpu>, as user <s164211> in cluster <dcc> at Fri Jan 24 20:00:57 2020
+</zhome/e3/7/118026> was used as the home directory.
+</zhome/e3/7/118026/Desktop/gits/3/New/GPU_TOL> was used as the working directory.
+Started at Fri Jan 24 20:00:57 2020
+Terminated at Fri Jan 24 20:05:02 2020
+Results reported at Fri Jan 24 20:05:02 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J xbone_1_tol
+#BSUB -o xbone_1_tol_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 1
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -R "rusage[mem=8GB]"
+#BSUB -W 4
+# BSUB -R "span[hosts=1]"
+
+# set -x
+
+nvidia-smi
+
+# module load studio
+# module load clang/9.0.0
+# module swap clang/9.0.0
+module load cuda/10.2
+module load gcc/8.3.0
+# /appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+
+# executable
+EXECUTABLE=poisson_tolerance
+
+# args
+N="128 256 512"
+ITER="100"
+TOL="0.1"
+START_T="0"
+OUT="0"
+
+# environment variables
+
+NUM_RUNS=10
+ITERS="10000"
+# start the collect command with the above settings
+# ./$EXECUTABLE $N $ITER $TOL $START_T $OUT
+
+# time for i in {1..1000}; do ./$EXECUTABLE 25 $ITER $TOL $START_T $OUT; done
+# time for i in {1..100}; do ./$EXECUTABLE 50 $ITER $TOL $START_T $OUT; done
+# time for i in {1..10}; do ./$EXECUTABLE 100 $ITER $TOL $START_T $OUT; done
+# time ./$EXECUTABLE 200 $ITER $TOL $START_T $OUT
+
+for n in $N
+do
+    time ./$EXECUTABLE $n $ITERS $TOL $START_T $OUT
+    nvprof --print-gpu-summary ./$EXECUTABLE $n $ITERS $TOL $START_T $OUT
+done
+
+# for n in $N
+
+(... more ...)
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time :                                   240.00 sec.
+    Max Memory :                                 74 MB
+    Average Memory :                             20.82 MB
+    Total Requested Memory :                     8192.00 MB
+    Delta Memory :                               8118.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                15
+    Run time :                                   249 sec.
+    Turnaround time :                            245 sec.
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,164 @@
+Fri Jan 24 19:42:29 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.36       Driver Version: 440.36       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  On   | 00000000:37:00.0 Off |                    0 |
+| N/A   59C    P0    34W / 250W |      0MiB / 16160MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Loaded module: cuda/10.2
+Loaded dependency [gcc/8.3.0]: binutils/2.29
+Loaded module: gcc/8.3.0
+
+real	0m1.077s
+user	0m0.516s
+sys	0m0.456s
+==3492== NVPROF is profiling process 3492, command: ./poisson_naive 128 10000 0 0 0
+==3492== Profiling application: ./poisson_naive 128 10000 0 0 0
+==3492== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.20%  663.73ms     10000  66.372us  65.695us  69.344us  jacobi_iteration(double*, double*, double*, int, int, int)
+                    0.61%  4.0914ms         3  1.3638ms  1.3633ms  1.3644ms  [CUDA memcpy HtoD]
+                    0.19%  1.2737ms         1  1.2737ms  1.2737ms  1.2737ms  [CUDA memcpy DtoH]
+
+real	0m6.411s
+user	0m3.815s
+sys	0m2.570s
+==3532== NVPROF is profiling process 3532, command: ./poisson_naive 256 10000 0 0 0
+==3532== Profiling application: ./poisson_naive 256 10000 0 0 0
+==3532== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.28%  5.88209s     10000  588.21us  581.34us  590.81us  jacobi_iteration(double*, double*, double*, int, int, int)
+                    0.55%  32.678ms         3  10.893ms  10.892ms  10.893ms  [CUDA memcpy HtoD]
+                    0.17%  10.180ms         1  10.180ms  10.180ms  10.180ms  [CUDA memcpy DtoH]
+
+real	0m48.904s
+user	0m29.793s
+sys	0m18.951s
+==3602== NVPROF is profiling process 3602, command: ./poisson_naive 512 10000 0 0 0
+==3602== Profiling application: ./poisson_naive 512 10000 0 0 0
+==3602== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.27%  46.5431s     10000  4.6543ms  4.6340ms  4.6672ms  jacobi_iteration(double*, double*, double*, int, int, int)
+                    0.56%  261.37ms         3  87.123ms  87.123ms  87.123ms  [CUDA memcpy HtoD]
+                    0.17%  81.424ms         1  81.424ms  81.424ms  81.424ms  [CUDA memcpy DtoH]
+array h_u1: allocation failed: File exists
+
+real	0m12.929s
+user	0m0.025s
+sys	0m12.737s
+==3677== NVPROF is profiling process 3677, command: ./poisson_naive 1024 100 0 0 0
+==3677== Profiling application: ./poisson_naive 1024 100 0 0 0
+==3677== Profiling result:
+No kernels were profiled.
+==3677== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
+======== Error: Application received signal 9
+array h_u1: allocation failed: File exists
+
+real	0m13.054s
+user	0m0.022s
+sys	0m12.789s
+==3712== NVPROF is profiling process 3712, command: ./poisson_naive 1024 1000 0 0 0
+==3712== Profiling application: ./poisson_naive 1024 1000 0 0 0
+==3712== Profiling result:
+No kernels were profiled.
+==3712== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
+======== Error: Application received signal 9
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-3>
+Subject: Job 5187015: <xbone_1_seq> in cluster <dcc> Exited
+
+Job <xbone_1_seq> was submitted from host <n-62-20-7> by user <s164211> in cluster <dcc> at Fri Jan 24 19:41:14 2020
+Job was executed on host(s) <n-62-20-3>, in queue <hpcintrogpu>, as user <s164211> in cluster <dcc> at Fri Jan 24 19:42:29 2020
+</zhome/e3/7/118026> was used as the home directory.
+</zhome/e3/7/118026/Desktop/gits/3/New/GPU_NAIVE> was used as the working directory.
+Started at Fri Jan 24 19:42:29 2020
+Terminated at Fri Jan 24 19:45:03 2020
+Results reported at Fri Jan 24 19:45:03 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J xbone_1_seq
+#BSUB -o xbone_1_seq_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 1
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -R "rusage[mem=8GB]"
+#BSUB -W 10
+#BSUB -R "span[hosts=1]"
+
+# set -x
+
+nvidia-smi
+
+# module load studio
+# module load clang/9.0.0
+# module swap clang/9.0.0
+module load cuda/10.2
+module load gcc/8.3.0
+# /appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+
+# executable
+EXECUTABLE=poisson_naive
+
+# args
+N="64 128 256 512"
+ITER="100"
+TOL="0"
+START_T="0"
+OUT="0"
+
+# environment variables
+
+NUM_RUNS=10
+ITERS="10 100 1000"
+# start the collect command with the above settings
+# ./$EXECUTABLE $N $ITER $TOL $START_T $OUT
+
+# time for i in {1..1000}; do ./$EXECUTABLE 25 $ITER $TOL $START_T $OUT; done
+# time for i in {1..100}; do ./$EXECUTABLE 50 $ITER $TOL $START_T $OUT; done
+# time for i in {1..10}; do ./$EXECUTABLE 100 $ITER $TOL $START_T $OUT; done
+# time ./$EXECUTABLE 200 $ITER $TOL $START_T $OUT
+
+
+NN="128"
+IT="10000"
+time ./$EXECUTABLE $NN $IT $TOL $START_T $OUT
+nvprof --print-gpu-summary ./$EXECUTABLE $NN $IT $TOL $START_T $OUT
+
+NN="256"
+
+(... more ...)
+------------------------------------------------------------
+
+TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
+Exited with exit code 130.
+
+Resource usage summary:
+
+    CPU time :                                   152.36 sec.
+    Max Memory :                                 8192 MB
+    Average Memory :                             19.50 MB
+    Total Requested Memory :                     8192.00 MB
+    Delta Memory :                               0.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                15
+    Run time :                                   155 sec.
+    Turnaround time :                            229 sec.
+
+The output (if any) is above this job summary.
+

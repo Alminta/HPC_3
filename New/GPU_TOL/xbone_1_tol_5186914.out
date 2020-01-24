@@ -1,0 +1,276 @@
+Fri Jan 24 19:06:28 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.36       Driver Version: 440.36       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  On   | 00000000:37:00.0 Off |                    0 |
+| N/A   52C    P0    29W / 250W |      0MiB / 16160MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Loaded module: cuda/10.2
+Loaded dependency [gcc/8.3.0]: binutils/2.29
+Loaded module: gcc/8.3.0
+max_tol: 0.010000 
+max_iter = 10
+real	0m0.367s
+user	0m0.024s
+sys	0m0.196s
+==23285== NVPROF is profiling process 23285, command: ./poisson_tolerance 64 10 0.1 0 0
+==23285== Profiling application: ./poisson_tolerance 64 10 0.1 0 0
+max_tol: 0.010000 
+max_iter = 10==23285== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   51.33%  852.67us        10  85.266us  85.088us  85.728us  reduction_presum(double*, int, double*)
+                   32.00%  531.58us        13  40.890us  1.1840us  173.63us  [CUDA memcpy HtoD]
+                   10.53%  174.98us        11  15.906us  1.3120us  160.48us  [CUDA memcpy DtoH]
+                    6.13%  101.82us        10  10.182us  9.6640us  11.360us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+max_tol: 0.010000 
+max_iter = 100
+real	0m0.229s
+user	0m0.037s
+sys	0m0.179s
+==23304== NVPROF is profiling process 23304, command: ./poisson_tolerance 64 100 0.1 0 0
+==23304== Profiling application: ./poisson_tolerance 64 100 0.1 0 0
+==23304== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   81.64%  8.5246ms       100  85.246us  85.088us  85.792us  reduction_presum(double*, int, double*)
+                    9.41%  982.43us       100  9.8240us  9.0880us  11.552us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    6.13%  639.90us       103  6.2120us  1.1520us  173.44us  [CUDA memcpy HtoD]
+                    2.83%  295.39us       101  2.9240us  1.3120us  160.54us  [CUDA memcpy DtoH]
+max_tol: 0.010000 
+max_iter = 100max_tol: 0.010000 
+max_iter = 1000
+real	0m0.343s
+user	0m0.109s
+sys	0m0.219s
+==23323== NVPROF is profiling process 23323, command: ./poisson_tolerance 64 1000 0.1 0 0
+==23323== Profiling application: ./poisson_tolerance 64 1000 0.1 0 0
+max_tol: 0.010000 
+max_iter = 1000==23323== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   85.83%  77.377ms      1000  77.376us  76.864us  77.760us  reduction_presum(double*, int, double*)
+                   10.73%  9.6760ms      1000  9.6760us  8.7680us  11.040us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    1.84%  1.6547ms      1003  1.6490us  1.1190us  173.15us  [CUDA memcpy HtoD]
+                    1.60%  1.4395ms      1001  1.4380us  1.0560us  160.45us  [CUDA memcpy DtoH]
+max_tol: 0.010000 
+max_iter = 10
+real	0m0.253s
+user	0m0.038s
+sys	0m0.206s
+==23341== NVPROF is profiling process 23341, command: ./poisson_tolerance 128 10 0.1 0 0
+==23341== Profiling application: ./poisson_tolerance 128 10 0.1 0 0
+==23341== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   48.80%  6.0229ms        10  602.29us  601.89us  602.97us  reduction_presum(double*, int, double*)
+                   33.23%  4.1008ms        13  315.45us  1.1200us  1.3637ms  [CUDA memcpy HtoD]
+                   10.43%  1.2870ms        11  117.00us  1.2480us  1.2731ms  [CUDA memcpy DtoH]
+                    7.54%  930.72us        10  93.071us  91.904us  99.584us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+max_tol: 0.010000 
+max_iter = 10max_tol: 0.010000 
+max_iter = 100
+real	0m0.322s
+user	0m0.079s
+sys	0m0.228s
+==23360== NVPROF is profiling process 23360, command: ./poisson_tolerance 128 100 0.1 0 0
+==23360== Profiling application: ./poisson_tolerance 128 100 0.1 0 0
+==23360== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   80.21%  60.229ms       100  602.29us  601.66us  603.23us  reduction_presum(double*, int, double*)
+                   12.32%  9.2517ms       100  92.516us  91.776us  99.775us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    5.60%  4.2022ms       103  40.797us  1.0880us  1.3633ms  [CUDA memcpy HtoD]
+                    1.87%  1.4030ms       101  13.891us  1.2470us  1.2740ms  [CUDA memcpy DtoH]
+max_tol: 0.010000 
+max_iter = 100max_tol: 0.010000 
+max_iter = 1000
+real	0m0.968s
+user	0m0.487s
+sys	0m0.469s
+==23379== NVPROF is profiling process 23379, command: ./poisson_tolerance 128 1000 0.1 0 0
+==23379== Profiling application: ./poisson_tolerance 128 1000 0.1 0 0
+==23379== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   85.73%  602.27ms      1000  602.27us  601.56us  603.65us  reduction_presum(double*, int, double*)
+                   13.16%  92.448ms      1000  92.448us  91.615us  99.007us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    0.74%  5.2258ms      1003  5.2100us  1.0880us  1.3631ms  [CUDA memcpy HtoD]
+                    0.36%  2.5513ms      1001  2.5480us  1.2470us  1.2728ms  [CUDA memcpy DtoH]
+max_tol: 0.010000 
+max_iter = 1000max_tol: 0.010000 
+max_iter = 10
+real	0m0.591s
+user	0m0.132s
+sys	0m0.443s
+==23399== NVPROF is profiling process 23399, command: ./poisson_tolerance 256 10 0.1 0 0
+==23399== Profiling application: ./poisson_tolerance 256 10 0.1 0 0
+==23399== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   48.38%  48.091ms        10  4.8091ms  4.8021ms  4.8140ms  reduction_presum(double*, int, double*)
+                   32.86%  32.661ms        13  2.5124ms  1.1200us  10.883ms  [CUDA memcpy HtoD]
+                   10.26%  10.194ms        11  926.73us  1.2480us  10.179ms  [CUDA memcpy DtoH]
+                    8.51%  8.4584ms        10  845.84us  842.11us  849.08us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+max_tol: 0.010000 
+max_iter = 10max_tol: 0.010000 
+max_iter = 100
+real	0m1.104s
+user	0m0.441s
+sys	0m0.645s
+==23418== NVPROF is profiling process 23418, command: ./poisson_tolerance 256 100 0.1 0 0
+==23418== Profiling application: ./poisson_tolerance 256 100 0.1 0 0
+==23418== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   79.01%  480.41ms       100  4.8041ms  4.8003ms  4.8146ms  reduction_presum(double*, int, double*)
+                   13.91%  84.561ms       100  845.61us  841.18us  850.84us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    5.39%  32.763ms       103  318.09us  1.1200us  10.883ms  [CUDA memcpy HtoD]
+                    1.70%  10.313ms       101  102.11us  1.2480us  10.180ms  [CUDA memcpy DtoH]
+max_tol: 0.010000 
+max_iter = 100max_tol: 0.010000 
+max_iter = 1000
+real	0m6.216s
+user	0m3.594s
+sys	0m2.588s
+==23453== NVPROF is profiling process 23453, command: ./poisson_tolerance 256 1000 0.1 0 0
+==23453== Profiling application: ./poisson_tolerance 256 1000 0.1 0 0
+max_tol: 0.010000 
+max_iter = 1000==23453== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   84.35%  4.80349s      1000  4.8035ms  4.7998ms  4.8093ms  reduction_presum(double*, int, double*)
+                   14.85%  845.61ms      1000  845.61us  841.47us  850.97us  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    0.59%  33.784ms      1003  33.683us  1.0880us  10.885ms  [CUDA memcpy HtoD]
+                    0.20%  11.498ms      1001  11.486us  1.2480us  10.180ms  [CUDA memcpy DtoH]
+max_tol: 0.010000 
+max_iter = 10
+real	0m3.106s
+user	0m0.871s
+sys	0m2.203s
+==23479== NVPROF is profiling process 23479, command: ./poisson_tolerance 512 10 0.1 0 0
+==23479== Profiling application: ./poisson_tolerance 512 10 0.1 0 0
+==23479== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   48.47%  384.02ms        10  38.402ms  38.393ms  38.418ms  reduction_presum(double*, int, double*)
+                   32.96%  261.14ms        13  20.088ms  1.0880us  87.045ms  [CUDA memcpy HtoD]
+                   10.28%  81.442ms        11  7.4039ms  1.3760us  81.426ms  [CUDA memcpy DtoH]
+                    8.28%  65.615ms        10  6.5615ms  6.5286ms  6.5927ms  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+max_tol: 0.010000 
+max_iter = 10max_tol: 0.010000 
+max_iter = 100
+real	0m7.154s
+user	0m3.374s
+sys	0m3.732s
+==23506== NVPROF is profiling process 23506, command: ./poisson_tolerance 512 100 0.1 0 0
+==23506== Profiling application: ./poisson_tolerance 512 100 0.1 0 0
+==23506== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   79.36%  3.84130s       100  38.413ms  38.387ms  38.463ms  reduction_presum(double*, int, double*)
+                   13.56%  656.24ms       100  6.5624ms  6.5335ms  6.5930ms  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    5.40%  261.24ms       103  2.5364ms  1.0880us  87.046ms  [CUDA memcpy HtoD]
+                    1.69%  81.565ms       101  807.57us  1.2800us  81.423ms  [CUDA memcpy DtoH]
+max_tol: 0.010000 
+max_iter = 100max_tol: 0.010000 
+max_iter = 1000
+real	0m47.637s
+user	0m28.527s
+sys	0m18.953s
+==23568== NVPROF is profiling process 23568, command: ./poisson_tolerance 512 1000 0.1 0 0
+==23568== Profiling application: ./poisson_tolerance 512 1000 0.1 0 0
+==23568== Profiling result:
+max_tol: 0.010000 
+max_iter = 1000            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   84.75%  38.3789s      1000  38.379ms  38.364ms  38.518ms  reduction_presum(double*, int, double*)
+                   14.49%  6.56080s      1000  6.5608ms  6.5271ms  6.5992ms  jacobi_iteration(double*, double*, double*, double*, int, int, int, float)
+                    0.58%  262.26ms      1003  261.48us  1.0870us  87.047ms  [CUDA memcpy HtoD]
+                    0.18%  82.835ms      1001  82.752us  1.2480us  81.423ms  [CUDA memcpy DtoH]
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-4>
+Subject: Job 5186914: <xbone_1_tol> in cluster <dcc> Done
+
+Job <xbone_1_tol> was submitted from host <n-62-20-7> by user <s164211> in cluster <dcc> at Fri Jan 24 19:06:25 2020
+Job was executed on host(s) <n-62-20-4>, in queue <hpcintrogpu>, as user <s164211> in cluster <dcc> at Fri Jan 24 19:06:27 2020
+</zhome/e3/7/118026> was used as the home directory.
+</zhome/e3/7/118026/Desktop/gits/3/New/GPU_TOL> was used as the working directory.
+Started at Fri Jan 24 19:06:27 2020
+Terminated at Fri Jan 24 19:08:48 2020
+Results reported at Fri Jan 24 19:08:48 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J xbone_1_tol
+#BSUB -o xbone_1_tol_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 1
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -R "rusage[mem=8GB]"
+#BSUB -W 4
+# BSUB -R "span[hosts=1]"
+
+# set -x
+
+nvidia-smi
+
+# module load studio
+# module load clang/9.0.0
+# module swap clang/9.0.0
+module load cuda/10.2
+module load gcc/8.3.0
+# /appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+
+# executable
+EXECUTABLE=poisson_tolerance
+
+# args
+N="64 128 256 512"
+ITER="100"
+TOL="0.1"
+START_T="0"
+OUT="0"
+
+# environment variables
+
+NUM_RUNS=10
+ITERS="10 100 1000"
+# start the collect command with the above settings
+# ./$EXECUTABLE $N $ITER $TOL $START_T $OUT
+
+# time for i in {1..1000}; do ./$EXECUTABLE 25 $ITER $TOL $START_T $OUT; done
+# time for i in {1..100}; do ./$EXECUTABLE 50 $ITER $TOL $START_T $OUT; done
+# time for i in {1..10}; do ./$EXECUTABLE 100 $ITER $TOL $START_T $OUT; done
+# time ./$EXECUTABLE 200 $ITER $TOL $START_T $OUT
+
+for n in $N
+do
+    for i in $ITERS
+    do
+        time ./$EXECUTABLE $n $i $TOL $START_T $OUT
+        nvprof --print-gpu-summary ./$EXECUTABLE $n $i $TOL $START_T $OUT
+    done
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   138.35 sec.
+    Max Memory :                                 66 MB
+    Average Memory :                             42.00 MB
+    Total Requested Memory :                     8192.00 MB
+    Delta Memory :                               8126.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                15
+    Run time :                                   159 sec.
+    Turnaround time :                            143 sec.
+
+The output (if any) is above this job summary.
+

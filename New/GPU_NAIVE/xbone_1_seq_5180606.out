@@ -1,0 +1,240 @@
+Fri Jan 24 14:52:00 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.36       Driver Version: 440.36       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  On   | 00000000:58:00.0 Off |                    0 |
+| N/A   33C    P0    26W / 250W |      0MiB / 32510MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Loaded module: cuda/10.2
+Loaded dependency [gcc/8.3.0]: binutils/2.29
+Loaded module: gcc/8.3.0
+
+real	0m0.328s
+user	0m0.024s
+sys	0m0.199s
+==128439== NVPROF is profiling process 128439, command: ./poisson_naive 64 10 0 0 0
+==128439== Profiling application: ./poisson_naive 64 10 0 0 0
+==128439== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   70.26%  520.10us         3  173.37us  172.86us  174.08us  [CUDA memcpy HtoD]
+                   21.73%  160.83us         1  160.83us  160.83us  160.83us  [CUDA memcpy DtoH]
+                    8.01%  59.296us        10  5.9290us  5.6000us  7.0400us  jacobi_iteration(double*, double*, double*, int, int, int)
+
+real	0m0.225s
+user	0m0.026s
+sys	0m0.186s
+==128458== NVPROF is profiling process 128458, command: ./poisson_naive 64 100 0 0 0
+==128458== Profiling application: ./poisson_naive 64 100 0 0 0
+==128458== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   46.37%  588.70us       100  5.8870us  5.6000us  6.7520us  jacobi_iteration(double*, double*, double*, int, int, int)
+                   40.98%  520.29us         3  173.43us  173.12us  173.82us  [CUDA memcpy HtoD]
+                   12.64%  160.48us         1  160.48us  160.48us  160.48us  [CUDA memcpy DtoH]
+
+real	0m0.238s
+user	0m0.033s
+sys	0m0.190s
+==128476== NVPROF is profiling process 128476, command: ./poisson_naive 64 1000 0 0 0
+==128476== Profiling application: ./poisson_naive 64 1000 0 0 0
+==128476== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   89.63%  5.8852ms      1000  5.8850us  5.5670us  6.7200us  jacobi_iteration(double*, double*, double*, int, int, int)
+                    7.92%  520.09us         3  173.36us  173.02us  173.89us  [CUDA memcpy HtoD]
+                    2.45%  160.96us         1  160.96us  160.96us  160.96us  [CUDA memcpy DtoH]
+
+real	0m0.262s
+user	0m0.039s
+sys	0m0.207s
+==128495== NVPROF is profiling process 128495, command: ./poisson_naive 128 10 0 0 0
+==128495== Profiling application: ./poisson_naive 128 10 0 0 0
+==128495== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   67.65%  4.1028ms         3  1.3676ms  1.3655ms  1.3711ms  [CUDA memcpy HtoD]
+                   21.02%  1.2749ms         1  1.2749ms  1.2749ms  1.2749ms  [CUDA memcpy DtoH]
+                   11.32%  686.69us        10  68.668us  67.968us  70.432us  jacobi_iteration(double*, double*, double*, int, int, int)
+
+real	0m0.269s
+user	0m0.044s
+sys	0m0.215s
+==128514== NVPROF is profiling process 128514, command: ./poisson_naive 128 100 0 0 0
+==128514== Profiling application: ./poisson_naive 128 100 0 0 0
+==128514== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   55.99%  6.8348ms       100  68.348us  67.616us  70.848us  jacobi_iteration(double*, double*, double*, int, int, int)
+                   33.56%  4.0966ms         3  1.3656ms  1.3653ms  1.3658ms  [CUDA memcpy HtoD]
+                   10.45%  1.2754ms         1  1.2754ms  1.2754ms  1.2754ms  [CUDA memcpy DtoH]
+
+real	0m0.337s
+user	0m0.088s
+sys	0m0.238s
+==128532== NVPROF is profiling process 128532, command: ./poisson_naive 128 1000 0 0 0
+==128532== Profiling application: ./poisson_naive 128 1000 0 0 0
+==128532== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   92.71%  68.339ms      1000  68.338us  67.552us  70.656us  jacobi_iteration(double*, double*, double*, int, int, int)
+                    5.56%  4.0962ms         3  1.3654ms  1.3651ms  1.3659ms  [CUDA memcpy HtoD]
+                    1.73%  1.2747ms         1  1.2747ms  1.2747ms  1.2747ms  [CUDA memcpy DtoH]
+
+real	0m0.598s
+user	0m0.155s
+sys	0m0.430s
+==128551== NVPROF is profiling process 128551, command: ./poisson_naive 256 10 0 0 0
+==128551== Profiling application: ./poisson_naive 256 10 0 0 0
+==128551== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   66.64%  32.708ms         3  10.903ms  10.902ms  10.904ms  [CUDA memcpy HtoD]
+                   20.75%  10.186ms         1  10.186ms  10.186ms  10.186ms  [CUDA memcpy DtoH]
+                   12.60%  6.1843ms        10  618.43us  613.44us  624.70us  jacobi_iteration(double*, double*, double*, int, int, int)
+
+real	0m0.647s
+user	0m0.186s
+sys	0m0.454s
+==128571== NVPROF is profiling process 128571, command: ./poisson_naive 256 100 0 0 0
+==128571== Profiling application: ./poisson_naive 256 100 0 0 0
+==128571== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   59.02%  61.784ms       100  617.84us  611.93us  627.04us  jacobi_iteration(double*, double*, double*, int, int, int)
+                   31.25%  32.709ms         3  10.903ms  10.902ms  10.904ms  [CUDA memcpy HtoD]
+                    9.73%  10.185ms         1  10.185ms  10.185ms  10.185ms  [CUDA memcpy DtoH]
+
+real	0m1.207s
+user	0m0.531s
+sys	0m0.664s
+==128591== NVPROF is profiling process 128591, command: ./poisson_naive 256 1000 0 0 0
+==128591== Profiling application: ./poisson_naive 256 1000 0 0 0
+==128591== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   93.52%  618.91ms      1000  618.91us  612.28us  626.59us  jacobi_iteration(double*, double*, double*, int, int, int)
+                    4.94%  32.709ms         3  10.903ms  10.903ms  10.903ms  [CUDA memcpy HtoD]
+                    1.54%  10.185ms         1  10.185ms  10.185ms  10.185ms  [CUDA memcpy DtoH]
+
+real	0m3.207s
+user	0m1.050s
+sys	0m2.120s
+==128612== NVPROF is profiling process 128612, command: ./poisson_naive 512 10 0 0 0
+==128612== Profiling application: ./poisson_naive 512 10 0 0 0
+==128612== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   66.39%  261.63ms         3  87.210ms  87.201ms  87.227ms  [CUDA memcpy HtoD]
+                   20.67%  81.472ms         1  81.472ms  81.472ms  81.472ms  [CUDA memcpy DtoH]
+                   12.94%  50.983ms        10  5.0983ms  5.0492ms  5.1284ms  jacobi_iteration(double*, double*, double*, int, int, int)
+
+real	0m3.663s
+user	0m1.338s
+sys	0m2.300s
+==128637== NVPROF is profiling process 128637, command: ./poisson_naive 512 100 0 0 0
+==128637== Profiling application: ./poisson_naive 512 100 0 0 0
+==128637== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   59.88%  512.14ms       100  5.1214ms  5.0767ms  5.1694ms  jacobi_iteration(double*, double*, double*, int, int, int)
+                   30.59%  261.60ms         3  87.200ms  87.199ms  87.202ms  [CUDA memcpy HtoD]
+                    9.53%  81.468ms         1  81.468ms  81.468ms  81.468ms  [CUDA memcpy DtoH]
+
+real	0m8.227s
+user	0m4.104s
+sys	0m4.063s
+==128665== NVPROF is profiling process 128665, command: ./poisson_naive 512 1000 0 0 0
+==128665== Profiling application: ./poisson_naive 512 1000 0 0 0
+==128665== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   93.72%  5.12035s      1000  5.1203ms  5.0333ms  5.1914ms  jacobi_iteration(double*, double*, double*, int, int, int)
+                    4.79%  261.60ms         3  87.200ms  87.198ms  87.201ms  [CUDA memcpy HtoD]
+                    1.49%  81.470ms         1  81.470ms  81.470ms  81.470ms  [CUDA memcpy DtoH]
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-14>
+Subject: Job 5180606: <xbone_1_seq> in cluster <dcc> Done
+
+Job <xbone_1_seq> was submitted from host <n-62-20-6> by user <s164211> in cluster <dcc> at Fri Jan 24 14:51:59 2020
+Job was executed on host(s) <n-62-20-14>, in queue <hpcintrogpu>, as user <s164211> in cluster <dcc> at Fri Jan 24 14:52:00 2020
+</zhome/e3/7/118026> was used as the home directory.
+</zhome/e3/7/118026/Desktop/gits/3/New/GPU_NAIVE> was used as the working directory.
+Started at Fri Jan 24 14:52:00 2020
+Terminated at Fri Jan 24 14:52:43 2020
+Results reported at Fri Jan 24 14:52:43 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J xbone_1_seq
+#BSUB -o xbone_1_seq_%J.out
+#BSUB -q hpcintrogpu
+#BSUB -n 1
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -R "rusage[mem=8GB]"
+#BSUB -W 10
+#BSUB -R "span[hosts=1]"
+
+# set -x
+
+nvidia-smi
+
+# module load studio
+# module load clang/9.0.0
+# module swap clang/9.0.0
+module load cuda/10.2
+module load gcc/8.3.0
+# /appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+
+# executable
+EXECUTABLE=poisson_naive
+
+# args
+N="64 128 256 512"
+ITER="100"
+TOL="0"
+START_T="0"
+OUT="0"
+
+# environment variables
+
+NUM_RUNS=10
+ITERS="10 100 1000"
+# start the collect command with the above settings
+# ./$EXECUTABLE $N $ITER $TOL $START_T $OUT
+
+# time for i in {1..1000}; do ./$EXECUTABLE 25 $ITER $TOL $START_T $OUT; done
+# time for i in {1..100}; do ./$EXECUTABLE 50 $ITER $TOL $START_T $OUT; done
+# time for i in {1..10}; do ./$EXECUTABLE 100 $ITER $TOL $START_T $OUT; done
+# time ./$EXECUTABLE 200 $ITER $TOL $START_T $OUT
+
+for n in $N
+do
+    for i in $ITERS
+    do
+        time ./$EXECUTABLE $n $i $TOL $START_T $OUT
+        nvprof --print-gpu-summary ./$EXECUTABLE $n $i $TOL $START_T $OUT
+    done
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   40.35 sec.
+    Max Memory :                                 15 MB
+    Average Memory :                             11.75 MB
+    Total Requested Memory :                     8192.00 MB
+    Delta Memory :                               8177.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   57 sec.
+    Turnaround time :                            44 sec.
+
+The output (if any) is above this job summary.
+
