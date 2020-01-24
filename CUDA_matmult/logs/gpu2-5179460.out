@@ -1,0 +1,301 @@
++ nvidia-smi
+Fri Jan 24 13:43:43 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.36       Driver Version: 440.36       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  On   | 00000000:37:00.0 Off |                    0 |
+| N/A   59C    P0    30W / 250W |      0MiB / 16160MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
++ module load cuda/10.2
+++ /usr/bin/modulecmd bash load cuda/10.2
+Loaded module: cuda/10.2
++ eval CPATH=/appl/cuda/10.2/include ';export' 'CPATH;CUDA_HOME=/appl/cuda/10.2' ';export' 'CUDA_HOME;CUDA_ROOT=/appl/cuda/10.2' ';export' 'CUDA_ROOT;LD_LIBRARY_PATH=/appl/cuda/10.2/lib64:/lsf/10.1/linux3.10-glibc2.17-x86_64/lib' ';export' 'LD_LIBRARY_PATH;LD_RUN_PATH=/appl/cuda/10.2/lib64' ';export' 'LD_RUN_PATH;LOADEDMODULES=latex/TeXLive19:cuda/10.2' ';export' 'LOADEDMODULES;PATH=/appl/cuda/10.2/bin:/lsf/local/bin/:/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/appl/latex/TexLive19/bin/x86_64-linux:/apps/dcc/bin:/usr/bin:/bin:/usr/local/bin:.' ';export' 'PATH;_LMFILES_=/apps/dcc/etc/ModulesSL73/modulefiles/latex/TeXLive19:/apps/dcc/etc/ModulesSL73/modulefiles/cuda/10.2' ';export' '_LMFILES_;unset' 'MODULE_PARENT;'
+++ CPATH=/appl/cuda/10.2/include
+++ export CPATH
+++ CUDA_HOME=/appl/cuda/10.2
+++ export CUDA_HOME
+++ CUDA_ROOT=/appl/cuda/10.2
+++ export CUDA_ROOT
+++ LD_LIBRARY_PATH=/appl/cuda/10.2/lib64:/lsf/10.1/linux3.10-glibc2.17-x86_64/lib
+++ export LD_LIBRARY_PATH
+++ LD_RUN_PATH=/appl/cuda/10.2/lib64
+++ export LD_RUN_PATH
+++ LOADEDMODULES=latex/TeXLive19:cuda/10.2
+++ export LOADEDMODULES
+++ PATH=/appl/cuda/10.2/bin:/lsf/local/bin/:/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/appl/latex/TexLive19/bin/x86_64-linux:/apps/dcc/bin:/usr/bin:/bin:/usr/local/bin:.
+++ export PATH
+++ _LMFILES_=/apps/dcc/etc/ModulesSL73/modulefiles/latex/TeXLive19:/apps/dcc/etc/ModulesSL73/modulefiles/cuda/10.2
+++ export _LMFILES_
+++ unset MODULE_PARENT
++ module load gcc/8.2.0
+++ /usr/bin/modulecmd bash load gcc/8.2.0
+Loaded dependency [gcc/8.2.0]: binutils/2.29
+Loaded module: gcc/8.2.0
++ eval LD_LIBRARY_PATH=/appl/gcc/8.2.0/lib:/appl/gcc/8.2.0/lib64:/appl/cuda/10.2/lib64:/lsf/10.1/linux3.10-glibc2.17-x86_64/lib ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=latex/TeXLive19:cuda/10.2:binutils/2.29:gcc/8.2.0' ';export' 'LOADEDMODULES;MANPATH=/appl/gcc/8.2.0/share/man:/lsf/10.1/man:/appl/latex/TexLive19/texmf/doc/man:/usr/share/man' ';export' 'MANPATH;PATH=/appl/gcc/8.2.0/bin:/appl/binutils/2.29/bin:/appl/cuda/10.2/bin:/lsf/local/bin/:/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/appl/latex/TexLive19/bin/x86_64-linux:/apps/dcc/bin:/usr/bin:/bin:/usr/local/bin:.' ';export' 'PATH;_LMFILES_=/apps/dcc/etc/ModulesSL73/modulefiles/latex/TeXLive19:/apps/dcc/etc/ModulesSL73/modulefiles/cuda/10.2:/apps/dcc/etc/ModulesSL73/modulefiles/binutils/2.29:/apps/dcc/etc/ModulesSL73/modulefiles/gcc/8.2.0' ';export' '_LMFILES_;unset' 'MODULE_PARENT;'
+++ LD_LIBRARY_PATH=/appl/gcc/8.2.0/lib:/appl/gcc/8.2.0/lib64:/appl/cuda/10.2/lib64:/lsf/10.1/linux3.10-glibc2.17-x86_64/lib
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=latex/TeXLive19:cuda/10.2:binutils/2.29:gcc/8.2.0
+++ export LOADEDMODULES
+++ MANPATH=/appl/gcc/8.2.0/share/man:/lsf/10.1/man:/appl/latex/TexLive19/texmf/doc/man:/usr/share/man
+++ export MANPATH
+++ PATH=/appl/gcc/8.2.0/bin:/appl/binutils/2.29/bin:/appl/cuda/10.2/bin:/lsf/local/bin/:/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/appl/latex/TexLive19/bin/x86_64-linux:/apps/dcc/bin:/usr/bin:/bin:/usr/local/bin:.
+++ export PATH
+++ _LMFILES_=/apps/dcc/etc/ModulesSL73/modulefiles/latex/TeXLive19:/apps/dcc/etc/ModulesSL73/modulefiles/cuda/10.2:/apps/dcc/etc/ModulesSL73/modulefiles/binutils/2.29:/apps/dcc/etc/ModulesSL73/modulefiles/gcc/8.2.0
+++ export _LMFILES_
+++ unset MODULE_PARENT
++ /appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+/appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery Starting...
+
+ CUDA Device Query (Runtime API) version (CUDART static linking)
+
+Detected 1 CUDA Capable device(s)
+
+Device 0: "Tesla V100-PCIE-16GB"
+  CUDA Driver Version / Runtime Version          10.2 / 9.1
+  CUDA Capability Major/Minor version number:    7.0
+  Total amount of global memory:                 16160 MBytes (16945512448 bytes)
+  (80) Multiprocessors, ( 64) CUDA Cores/MP:     5120 CUDA Cores
+  GPU Max Clock rate:                            1380 MHz (1.38 GHz)
+  Memory Clock rate:                             877 Mhz
+  Memory Bus Width:                              4096-bit
+  L2 Cache Size:                                 6291456 bytes
+  Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
+  Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
+  Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
+  Total amount of constant memory:               65536 bytes
+  Total amount of shared memory per block:       49152 bytes
+  Total number of registers available per block: 65536
+  Warp size:                                     32
+  Maximum number of threads per multiprocessor:  2048
+  Maximum number of threads per block:           1024
+  Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+  Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+  Maximum memory pitch:                          2147483647 bytes
+  Texture alignment:                             512 bytes
+  Concurrent copy and kernel execution:          Yes with 7 copy engine(s)
+  Run time limit on kernels:                     No
+  Integrated GPU sharing Host Memory:            No
+  Support host page-locked memory mapping:       Yes
+  Alignment requirement for Surfaces:            Yes
+  Device has ECC support:                        Enabled
+  Device supports Unified Addressing (UVA):      Yes
+  Supports Cooperative Kernel Launch:            Yes
+  Supports MultiDevice Co-op Kernel Launch:      Yes
+  Device PCI Domain ID / Bus ID / location ID:   0 / 55 / 0
+  Compute Mode:
+     < Exclusive Process (many threads in one process is able to use ::cudaSetDevice() with this device) >
+
+deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 10.2, CUDA Runtime Version = 9.1, NumDevs = 1
+Result = PASS
++ N=32
++ N2=64
++ N3=128
++ N4=256
++ N5=512
++ N6=1024
++ N7=2048
++ N8=4096
++ N9=8192
++ N10=16384
++ SIZE='32 32 32'
++ SIZE2='64 64 64'
++ SIZE3='128 128 128'
++ SIZE4='256 256 256'
++ SIZE5='512 512 512'
++ SIZE6='1024 1024 1024'
++ SIZE7='2048 2048 2048'
++ SIZE8='4096 4096 4096'
++ SIZE9='8192 8192 8192'
++ SIZE10='16384 16384 16384'
++ export MATMULT_COMPARE=0
++ MATMULT_COMPARE=0
++ export MFLOPS_MAX_IT=1
++ MFLOPS_MAX_IT=1
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 32 32 32
+==309== NVPROF is profiling process 309, command: ./matmult_f.nvcc gpu2 32 32 32
+==309== Profiling application: ./matmult_f.nvcc gpu2 32 32 32
+==309== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   43.10%  5.7920us         1  5.7920us  5.7920us  5.7920us  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                   41.43%  5.5680us         3  1.8560us  1.4720us  2.0480us  [CUDA memcpy HtoD]
+                   15.48%  2.0800us         1  2.0800us  2.0800us  2.0800us  [CUDA memcpy DtoH]
+    24.000     47.151 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 64 64 64
+==323== NVPROF is profiling process 323, command: ./matmult_f.nvcc gpu2 64 64 64
+==323== Profiling application: ./matmult_f.nvcc gpu2 64 64 64
+==323== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   47.26%  11.872us         3  3.9570us  1.4720us  5.4400us  [CUDA memcpy HtoD]
+                   39.75%  9.9840us         1  9.9840us  9.9840us  9.9840us  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                   12.99%  3.2640us         1  3.2640us  3.2640us  3.2640us  [CUDA memcpy DtoH]
+    96.000    354.242 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 128 128 128
+==338== NVPROF is profiling process 338, command: ./matmult_f.nvcc gpu2 128 128 128
+==338== Profiling application: ./matmult_f.nvcc gpu2 128 128 128
+==338== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   50.39%  28.959us         3  9.6530us  1.4720us  14.399us  [CUDA memcpy HtoD]
+                   30.40%  17.472us         1  17.472us  17.472us  17.472us  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                   19.21%  11.039us         1  11.039us  11.039us  11.039us  [CUDA memcpy DtoH]
+   384.000   2894.443 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 256 256 256
+==353== NVPROF is profiling process 353, command: ./matmult_f.nvcc gpu2 256 256 256
+==353== Profiling application: ./matmult_f.nvcc gpu2 256 256 256
+==353== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   55.57%  91.999us         3  30.666us  1.4720us  45.472us  [CUDA memcpy HtoD]
+                   24.62%  40.768us         1  40.768us  40.768us  40.768us  [CUDA memcpy DtoH]
+                   19.81%  32.800us         1  32.800us  32.800us  32.800us  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+  1536.000  20840.120 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 512 512 512
+==367== NVPROF is profiling process 367, command: ./matmult_f.nvcc gpu2 512 512 512
+==367== Profiling application: ./matmult_f.nvcc gpu2 512 512 512
+==367== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   46.91%  348.89us         3  116.30us  1.5040us  173.79us  [CUDA memcpy HtoD]
+                   31.67%  235.52us         1  235.52us  235.52us  235.52us  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                   21.42%  159.33us         1  159.33us  159.33us  159.33us  [CUDA memcpy DtoH]
+  6144.000 105515.862 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 1024 1024 1024
+==381== NVPROF is profiling process 381, command: ./matmult_f.nvcc gpu2 1024 1024 1024
+==381== Profiling application: ./matmult_f.nvcc gpu2 1024 1024 1024
+==381== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   44.80%  1.6310ms         1  1.6310ms  1.6310ms  1.6310ms  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                   37.70%  1.3728ms         3  457.60us  1.5040us  685.88us  [CUDA memcpy HtoD]
+                   17.50%  637.12us         1  637.12us  637.12us  637.12us  [CUDA memcpy DtoH]
+ 24576.000 389182.048 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 2048 2048 2048
+==395== NVPROF is profiling process 395, command: ./matmult_f.nvcc gpu2 2048 2048 2048
+==395== Profiling application: ./matmult_f.nvcc gpu2 2048 2048 2048
+==395== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   59.95%  12.005ms         1  12.005ms  12.005ms  12.005ms  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                   27.34%  5.4746ms         3  1.8249ms  1.4720us  2.7386ms  [CUDA memcpy HtoD]
+                   12.71%  2.5460ms         1  2.5460ms  2.5460ms  2.5460ms  [CUDA memcpy DtoH]
+ 98304.000 773204.864 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 4096 4096 4096
+==409== NVPROF is profiling process 409, command: ./matmult_f.nvcc gpu2 4096 4096 4096
+==409== Profiling application: ./matmult_f.nvcc gpu2 4096 4096 4096
+==409== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   74.53%  93.780ms         1  93.780ms  93.780ms  93.780ms  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                   17.37%  21.859ms         3  7.2865ms  1.4720us  10.930ms  [CUDA memcpy HtoD]
+                    8.09%  10.181ms         1  10.181ms  10.181ms  10.181ms  [CUDA memcpy DtoH]
+393216.000 1066045.978 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 8192 8192 8192
+==423== NVPROF is profiling process 423, command: ./matmult_f.nvcc gpu2 8192 8192 8192
+==423== Profiling application: ./matmult_f.nvcc gpu2 8192 8192 8192
+==423== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   84.41%  693.83ms         1  693.83ms  693.83ms  693.83ms  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                   10.63%  87.393ms         3  29.131ms  1.4400us  43.696ms  [CUDA memcpy HtoD]
+                    4.95%  40.714ms         1  40.714ms  40.714ms  40.714ms  [CUDA memcpy DtoH]
+1572864.000 1328907.607 # matmult_gpu2
++ nvprof --print-gpu-summary ./matmult_f.nvcc gpu2 16384 16384 16384
+==438== NVPROF is profiling process 438, command: ./matmult_f.nvcc gpu2 16384 16384 16384
+==438== Profiling application: ./matmult_f.nvcc gpu2 16384 16384 16384
+==438== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   91.55%  5.55243s         1  5.55243s  5.55243s  5.55243s  matmult_gpu2_kern(int, int, int, double*, double*, double*)
+                    5.76%  349.63ms         3  116.54ms  1.5040us  174.82ms  [CUDA memcpy HtoD]
+                    2.68%  162.84ms         1  162.84ms  162.84ms  162.84ms  [CUDA memcpy DtoH]
+6291456.000 1446416.806 # matmult_gpu2
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-2>
+Subject: Job 5179460[2]: <gpu[2-2]> in cluster <dcc> Done
+
+Job <gpu[2-2]> was submitted from host <n-62-20-6> by user <s164171> in cluster <dcc> at Fri Jan 24 13:43:42 2020
+Job was executed on host(s) <n-62-20-2>, in queue <hpcintrogpu>, as user <s164171> in cluster <dcc> at Fri Jan 24 13:43:43 2020
+</zhome/c2/9/118118> was used as the home directory.
+</zhome/c2/9/118118/HPC/HPC_3/HPC_3/CUDA_matmult> was used as the working directory.
+Started at Fri Jan 24 13:43:43 2020
+Terminated at Fri Jan 24 13:44:06 2020
+Results reported at Fri Jan 24 13:44:06 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+### General options
+### ?- specify queue --
+#BSUB -q hpcintrogpu
+### -- set the job Name --
+#BSUB -J gpu[2-2]
+### -- ask for number of cores (default: 1) --
+#BSUB -n 1
+### -- Select the resources: 1 gpu in exclusive process mode --
+#BSUB -gpu "num=1:mode=exclusive_process"
+### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
+#BSUB -W 10
+# request 5GB of system-memory
+#BSUB -R "rusage[mem=8GB]"
+### -- send notification at start --
+##BSUB -B
+### -- send notification at completion--
+##BSUB -N
+### -- Specify the output and error file. %J is the job-id --
+### -- -o and -e mean append, -oo and -eo mean overwrite --
+#BSUB -o logs/gpu%I-%J.out
+# -- end of LSF options --
+
+set -x
+
+nvidia-smi
+# Load the cuda module
+module load cuda/10.2
+module load gcc/8.2.0
+/appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+N=32
+N2=64
+N3=128
+N4=256
+N5=512
+N6=1024
+N7=2048
+N8=4096
+N9=8192
+N10=16384
+# N=512
+# N2=1024
+# N3=2048
+
+# SIZE="303 201 105"
+# SIZE2="201 401 353"
+# SIZE3="205 307 509"
+SIZE="$N $N $N"
+SIZE2="$N2 $N2 $N2"
+SIZE3="$N3 $N3 $N3"
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   21.81 sec.
+    Max Memory :                                 118 MB
+    Average Memory :                             118.00 MB
+    Total Requested Memory :                     8192.00 MB
+    Delta Memory :                               8074.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                15
+    Run time :                                   33 sec.
+    Turnaround time :                            24 sec.
+
+The output (if any) is above this job summary.
+

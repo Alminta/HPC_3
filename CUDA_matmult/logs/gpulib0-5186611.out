@@ -1,0 +1,231 @@
++ nvidia-smi
+Fri Jan 24 17:55:32 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.36       Driver Version: 440.36       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  On   | 00000000:AF:00.0 Off |                    0 |
+| N/A   46C    P0    29W / 250W |      0MiB / 16160MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
++ module load cuda/10.2
+++ /usr/bin/modulecmd bash load cuda/10.2
+Loaded module: cuda/10.2
++ eval CPATH=/appl/cuda/10.2/include ';export' 'CPATH;CUDA_HOME=/appl/cuda/10.2' ';export' 'CUDA_HOME;CUDA_ROOT=/appl/cuda/10.2' ';export' 'CUDA_ROOT;LD_LIBRARY_PATH=/appl/cuda/10.2/lib64:/lsf/10.1/linux3.10-glibc2.17-x86_64/lib' ';export' 'LD_LIBRARY_PATH;LD_RUN_PATH=/appl/cuda/10.2/lib64' ';export' 'LD_RUN_PATH;LOADEDMODULES=latex/TeXLive19:cuda/10.2' ';export' 'LOADEDMODULES;PATH=/appl/cuda/10.2/bin:/lsf/local/bin/:/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/appl/latex/TexLive19/bin/x86_64-linux:/apps/dcc/bin:/usr/bin:/bin:/usr/local/bin:.' ';export' 'PATH;_LMFILES_=/apps/dcc/etc/ModulesSL73/modulefiles/latex/TeXLive19:/apps/dcc/etc/ModulesSL73/modulefiles/cuda/10.2' ';export' '_LMFILES_;unset' 'MODULE_PARENT;'
+++ CPATH=/appl/cuda/10.2/include
+++ export CPATH
+++ CUDA_HOME=/appl/cuda/10.2
+++ export CUDA_HOME
+++ CUDA_ROOT=/appl/cuda/10.2
+++ export CUDA_ROOT
+++ LD_LIBRARY_PATH=/appl/cuda/10.2/lib64:/lsf/10.1/linux3.10-glibc2.17-x86_64/lib
+++ export LD_LIBRARY_PATH
+++ LD_RUN_PATH=/appl/cuda/10.2/lib64
+++ export LD_RUN_PATH
+++ LOADEDMODULES=latex/TeXLive19:cuda/10.2
+++ export LOADEDMODULES
+++ PATH=/appl/cuda/10.2/bin:/lsf/local/bin/:/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/appl/latex/TexLive19/bin/x86_64-linux:/apps/dcc/bin:/usr/bin:/bin:/usr/local/bin:.
+++ export PATH
+++ _LMFILES_=/apps/dcc/etc/ModulesSL73/modulefiles/latex/TeXLive19:/apps/dcc/etc/ModulesSL73/modulefiles/cuda/10.2
+++ export _LMFILES_
+++ unset MODULE_PARENT
++ module load gcc/8.2.0
+++ /usr/bin/modulecmd bash load gcc/8.2.0
+Loaded dependency [gcc/8.2.0]: binutils/2.29
+Loaded module: gcc/8.2.0
++ eval LD_LIBRARY_PATH=/appl/gcc/8.2.0/lib:/appl/gcc/8.2.0/lib64:/appl/cuda/10.2/lib64:/lsf/10.1/linux3.10-glibc2.17-x86_64/lib ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=latex/TeXLive19:cuda/10.2:binutils/2.29:gcc/8.2.0' ';export' 'LOADEDMODULES;MANPATH=/appl/gcc/8.2.0/share/man:/lsf/10.1/man:/appl/latex/TexLive19/texmf/doc/man:/usr/share/man' ';export' 'MANPATH;PATH=/appl/gcc/8.2.0/bin:/appl/binutils/2.29/bin:/appl/cuda/10.2/bin:/lsf/local/bin/:/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/appl/latex/TexLive19/bin/x86_64-linux:/apps/dcc/bin:/usr/bin:/bin:/usr/local/bin:.' ';export' 'PATH;_LMFILES_=/apps/dcc/etc/ModulesSL73/modulefiles/latex/TeXLive19:/apps/dcc/etc/ModulesSL73/modulefiles/cuda/10.2:/apps/dcc/etc/ModulesSL73/modulefiles/binutils/2.29:/apps/dcc/etc/ModulesSL73/modulefiles/gcc/8.2.0' ';export' '_LMFILES_;unset' 'MODULE_PARENT;'
+++ LD_LIBRARY_PATH=/appl/gcc/8.2.0/lib:/appl/gcc/8.2.0/lib64:/appl/cuda/10.2/lib64:/lsf/10.1/linux3.10-glibc2.17-x86_64/lib
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=latex/TeXLive19:cuda/10.2:binutils/2.29:gcc/8.2.0
+++ export LOADEDMODULES
+++ MANPATH=/appl/gcc/8.2.0/share/man:/lsf/10.1/man:/appl/latex/TexLive19/texmf/doc/man:/usr/share/man
+++ export MANPATH
+++ PATH=/appl/gcc/8.2.0/bin:/appl/binutils/2.29/bin:/appl/cuda/10.2/bin:/lsf/local/bin/:/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/appl/latex/TexLive19/bin/x86_64-linux:/apps/dcc/bin:/usr/bin:/bin:/usr/local/bin:.
+++ export PATH
+++ _LMFILES_=/apps/dcc/etc/ModulesSL73/modulefiles/latex/TeXLive19:/apps/dcc/etc/ModulesSL73/modulefiles/cuda/10.2:/apps/dcc/etc/ModulesSL73/modulefiles/binutils/2.29:/apps/dcc/etc/ModulesSL73/modulefiles/gcc/8.2.0
+++ export _LMFILES_
+++ unset MODULE_PARENT
++ /appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+/appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery Starting...
+
+ CUDA Device Query (Runtime API) version (CUDART static linking)
+
+Detected 1 CUDA Capable device(s)
+
+Device 0: "Tesla V100-PCIE-16GB"
+  CUDA Driver Version / Runtime Version          10.2 / 9.1
+  CUDA Capability Major/Minor version number:    7.0
+  Total amount of global memory:                 16160 MBytes (16945512448 bytes)
+  (80) Multiprocessors, ( 64) CUDA Cores/MP:     5120 CUDA Cores
+  GPU Max Clock rate:                            1380 MHz (1.38 GHz)
+  Memory Clock rate:                             877 Mhz
+  Memory Bus Width:                              4096-bit
+  L2 Cache Size:                                 6291456 bytes
+  Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
+  Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
+  Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
+  Total amount of constant memory:               65536 bytes
+  Total amount of shared memory per block:       49152 bytes
+  Total number of registers available per block: 65536
+  Warp size:                                     32
+  Maximum number of threads per multiprocessor:  2048
+  Maximum number of threads per block:           1024
+  Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+  Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+  Maximum memory pitch:                          2147483647 bytes
+  Texture alignment:                             512 bytes
+  Concurrent copy and kernel execution:          Yes with 7 copy engine(s)
+  Run time limit on kernels:                     No
+  Integrated GPU sharing Host Memory:            No
+  Support host page-locked memory mapping:       Yes
+  Alignment requirement for Surfaces:            Yes
+  Device has ECC support:                        Enabled
+  Device supports Unified Addressing (UVA):      Yes
+  Supports Cooperative Kernel Launch:            Yes
+  Supports MultiDevice Co-op Kernel Launch:      Yes
+  Device PCI Domain ID / Bus ID / location ID:   0 / 175 / 0
+  Compute Mode:
+     < Exclusive Process (many threads in one process is able to use ::cudaSetDevice() with this device) >
+
+deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 10.2, CUDA Runtime Version = 9.1, NumDevs = 1
+Result = PASS
++ N=32
++ N2=64
++ N3=128
++ N4=256
++ N5=512
++ N6=1024
++ N7=2048
++ N8=4096
++ N9=8192
++ N10=16384
++ SIZE='32 32 32'
++ SIZE2='64 64 64'
++ SIZE3='128 128 128'
++ SIZE4='256 256 256'
++ SIZE5='512 512 512'
++ SIZE6='1024 1024 1024'
++ SIZE7='2048 2048 2048'
++ SIZE8='4096 4096 4096'
++ SIZE9='8192 8192 8192'
++ SIZE10='16384 16384 16384'
++ export MATMULT_COMPARE=0
++ MATMULT_COMPARE=0
++ export MFLOPS_MAX_IT=50
++ MFLOPS_MAX_IT=50
++ ./matmult_f.nvcc gpulib 32 32 32
+    24.000    168.083 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 64 64 64
+    96.000   1218.810 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 128 128 128
+   384.000   8839.349 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 256 256 256
+  1536.000  51145.080 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 512 512 512
+  6144.000 178044.985 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 1024 1024 1024
+ 24576.000 549677.923 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 2048 2048 2048
+ 98304.000 1219236.040 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 4096 4096 4096
+393216.000 2170712.217 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 8192 8192 8192
+1572864.000 3317606.172 # matmult_gpulib
++ ./matmult_f.nvcc gpulib 16384 16384 16384
+6291456.000 4536294.150 # matmult_gpulib
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-3>
+Subject: Job 5186611: <gpulib> in cluster <dcc> Done
+
+Job <gpulib> was submitted from host <n-62-20-6> by user <s164171> in cluster <dcc> at Fri Jan 24 17:55:32 2020
+Job was executed on host(s) <n-62-20-3>, in queue <hpcintrogpu>, as user <s164171> in cluster <dcc> at Fri Jan 24 17:55:32 2020
+</zhome/c2/9/118118> was used as the home directory.
+</zhome/c2/9/118118/HPC/HPC_3/HPC_3/CUDA_matmult> was used as the working directory.
+Started at Fri Jan 24 17:55:32 2020
+Terminated at Fri Jan 24 17:57:41 2020
+Results reported at Fri Jan 24 17:57:41 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+### General options
+### ?- specify queue --
+#BSUB -q hpcintrogpu
+### -- set the job Name --
+#BSUB -J gpulib
+### -- ask for number of cores (default: 1) --
+#BSUB -n 1
+### -- Select the resources: 1 gpu in exclusive process mode --
+#BSUB -gpu "num=1:mode=exclusive_process"
+### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
+#BSUB -W 10
+# request 5GB of system-memory
+#BSUB -R "rusage[mem=8GB]"
+### -- send notification at start --
+##BSUB -B
+### -- send notification at completion--
+##BSUB -N
+### -- Specify the output and error file. %J is the job-id --
+### -- -o and -e mean append, -oo and -eo mean overwrite --
+#BSUB -o logs/gpulib%I-%J.out
+# -- end of LSF options --
+
+
+set -x
+
+nvidia-smi
+# Load the cuda module
+module load cuda/10.2
+module load gcc/8.2.0
+/appl/cuda/9.1/samples/bin/x86_64/linux/release/deviceQuery
+N=32
+N2=64
+N3=128
+N4=256
+N5=512
+N6=1024
+N7=2048
+N8=4096
+N9=8192
+N10=16384
+# N=512
+# N2=1024
+# N3=2048
+
+# SIZE="303 201 105"
+# SIZE2="201 401 353"
+# SIZE3="205 307 509"
+SIZE="$N $N $N"
+SIZE2="$N2 $N2 $N2"
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   122.16 sec.
+    Max Memory :                                 179 MB
+    Average Memory :                             154.00 MB
+    Total Requested Memory :                     8192.00 MB
+    Delta Memory :                               8013.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   128 sec.
+    Turnaround time :                            129 sec.
+
+The output (if any) is above this job summary.
+
